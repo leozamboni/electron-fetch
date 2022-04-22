@@ -5,7 +5,7 @@ interface Props {
   color: string;
 }
 
-const Matrix: React.FC<Props> = ({ color, ...props }) => {
+const RainCode: React.FC<Props> = ({ color, ...props }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -62,4 +62,4 @@ const Matrix: React.FC<Props> = ({ color, ...props }) => {
   );
 };
 
-export default Matrix;
+export default RainCode;

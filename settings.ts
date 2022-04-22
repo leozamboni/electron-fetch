@@ -1,3 +1,6 @@
+import { BackgroundEnum } from 'enums/backgrounds';
+import { DistroEnum } from 'enums/distro';
+
 export interface Settings {
   hostname?: string;
   os?: string;
@@ -16,8 +19,12 @@ export interface Settings {
   memory?: string;
 }
 
+export const background: BackgroundEnum = BackgroundEnum.RainCode;
+
+export const distro: DistroEnum = DistroEnum.Arch;
+
 export const settings: Settings = {
-  hostname: 'pc@arch',
+  hostname: 'leonardo@arch',
   os: 'arch',
   host: 'MS-7A59 1.0',
   kernel: '5.15.34-1-lts',
