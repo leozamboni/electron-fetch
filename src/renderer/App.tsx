@@ -4,7 +4,7 @@ import './App.css';
 
 const ElectronFetch = () => {
   return (
-    <Matrix>
+    <Matrix color={'#426fb3'}>
       <Arch />
     </Matrix>
   );

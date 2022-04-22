@@ -1,7 +1,11 @@
 import Background from 'components/background';
 import { useEffect, useRef } from 'react';
 
-const Matrix = ({ ...props }) => {
+interface Props {
+  color: string;
+}
+
+const Matrix: React.FC<Props> = ({ color, ...props }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -29,7 +33,7 @@ const Matrix = ({ ...props }) => {
           ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
           ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-          ctx.fillStyle = '#235070';
+          ctx.fillStyle = color;
           ctx.font = font_size + 'px arial';
 
           for (let i = 0; i < drops.length; i++) {
