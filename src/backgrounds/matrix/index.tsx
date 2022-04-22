@@ -1,6 +1,7 @@
+import Background from 'components/background';
 import { useEffect, useRef } from 'react';
 
-const Matrix = () => {
+const Matrix = ({ ...props }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -48,7 +49,13 @@ const Matrix = () => {
     }
   }, []);
 
-  return <canvas ref={canvasRef}></canvas>;
+  return (
+    <Background
+      style={{ backgroundColor: '#141414' }}
+      canvasRef={canvasRef}
+      {...props}
+    />
+  );
 };
 
 export default Matrix;
