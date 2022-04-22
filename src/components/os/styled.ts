@@ -24,5 +24,7 @@ export const Logo = styled.img`
 `;
 
 export const InfoSpan = styled.span`
-  color: blue;
+  color: ${(props) => props.color};
 `;
+
+export const InfosP = styled.p``;

@@ -1,76 +1,26 @@
-import { Container, Logo, InfoSpan, Infos } from './styled';
+import { fetchInfos, Informations } from '../../../informations';
+import { Container, Logo, Infos, InfoSpan, InfosP } from './styled';
 
 interface Props {
-  hostname?: string;
-  os?: string;
-  host?: string;
-  kernel?: string;
-  pkgs?: string;
-  memory?: string;
+  colorBase: string;
   logo: string;
-  baseColor: string;
 }
 
-const OS: React.FC<Props> = ({
-  hostname,
-  os,
-  host,
-  kernel,
-  pkgs,
-  memory,
-  logo,
-  baseColor,
-  ...props
-}) => {
+const OS: React.FC<Props> = ({ colorBase, logo, ...props }) => {
+  const infos: Informations = fetchInfos;
   return (
     <Container>
       <Logo src={logo} />
       <Infos>
-        <p style={{ color: baseColor }}>{hostname}</p>
-        <p>
-          <InfoSpan>os</InfoSpan> {os}
-        </p>
-        {host ? (
-          <p>
-            <InfoSpan>host</InfoSpan> {host}
-          </p>
+        {infos.hostname ? <InfosP>{infos.hostname}</InfosP> : ''}
+        {infos.os ? (
+          <InfosP>
+            <InfoSpan color={colorBase}>os </InfoSpan>
+            {infos.os}
+          </InfosP>
         ) : (
           ''
         )}
-        {kernel ? (
-          <p>
-            <InfoSpan>kernel</InfoSpan> {kernel}
-          </p>
-        ) : (
-          ''
-        )}
-        {pkgs ? (
-          <p>
-            <InfoSpan>pkgs</InfoSpan> {pkgs}
-          </p>
-        ) : (
-          ''
-        )}
-        <p>
-          <InfoSpan>shell</InfoSpan> bash
-        </p>
-        <p>
-          <InfoSpan>wm</InfoSpan> dwm
-        </p>
-        <p>
-          <InfoSpan>terminal</InfoSpan> st
-        </p>
-        {memory ? (
-          <p>
-            <InfoSpan>memory</InfoSpan> {memory}
-          </p>
-        ) : (
-          ''
-        )}
-        <p>
-          <InfoSpan>uptime</InfoSpan> 9 hours
-        </p>
-        {props.children}
       </Infos>
     </Container>
   );
